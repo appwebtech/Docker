@@ -117,12 +117,12 @@ docker container run -itd -p 8080:80 appwebtech/nginx
 
 The container **a1ea740bc6be** which houses **Ubuntu:14.04** has been modified by installing git, tree and cmatrix (a cool screensaver). I will export this container and rename it **ubuntu-git-tree-cmatrix.tar**. Subsequently I'll import it again assigning it a different image ID, run it in a different container and verify my installations.
 
-![Image-7](./Images/Image-7.png)
+![Image-7](./images/Image-7.png)
 
 
 </hr>
 
-![Image-8](./Images/Image-8.png)
+![Image-8](./images/Image-8.png)
 
 
 ## Docker Volumes
@@ -131,28 +131,28 @@ Docker containers data is ephemeral. If we add files in a folder like /temp and 
 
 To persist data in docker we use docker volumes or bind mounts. I will pull a **mysql** image and poke things around. The volume will be mounted in */var/lib/mysql* path, which can be viewed if **docker image inspect mysql** command is run.
 
-![Image-9](./Images/Image-9.png)
+![Image-9](./images/Image-9.png)
 
-![Image-10](./Images/Image-10.png)
+![Image-10](./images/Image-10.png)
 
 
 For some reason, Mac OS doesn't have the same file path as in Linux. So I had to do a work around of installing a debian image to trick the kernel in abstracting a path */var/lib/docker/volumes/* which mimics a Linux environment.
 
-![Image-11](./Images/Image-11.png)
+![Image-11](./images/Image-11.png)
 
 I will now jump inside the container and create a few mysql databases and then remove the container. What I want to demonstrate is data persistence. If I check the schema in the container, we only have 4 rows like before.
 
-![Image-12](./Images/Image-12.png)
+![Image-12](./images/Image-12.png)
 
 </hr>
 
-![Image-13](./Images/Image-13.png)
+![Image-13](./images/Image-13.png)
 
 If I check the volumes, we do have 2 volumes, and I need to create a container with the volume id **13e0ad9effd318b609f008ccfc694c8d23b1b9a99e0adf186defe6341bf6ef7d** as thats where the database was modified with 3 extra tables making a total of 7.
 
 I have created another container with volume **13e0ad9effd318b609f008ccfc694c8d23b1b9a99e0adf186defe6341bf6ef7d**, which will have a container ID of **c60ba4562f20e3e1e0bcbaf40c1a2261fd8ca0df6b9d4442320bdb73457150c6**. I will run it and verify that the saved data persisted.
 
-![Image-14](./Images/Image-14.png)
+![Image-14](./images/Image-14.png)
 
 
 ## Developing with Docker
@@ -166,23 +166,23 @@ I'll now go ahead and pull [Mongo](https://hub.docker.com/_/mongo) and [Mongo-ex
 Docker containers need a networking layer in order to relay information with each other, with remote hosts as well as with the host machine. By default, a bridge network is created upon Docker installation.
 As you can see below, no containers are assigned to it as there are no containers present.
 
-![Image-15](./Images/Image-15.png)
+![Image-15](./images/Image-15.png)
 
 
 Whenever we create a container, the bridge network gets created which enables packets flow from the main network interface (eth0) of the host machine to the network interfaces of each container. In our scenario, we have our isolated Docker network with NodeJS communicating with MongoDb and we'll use Mongo-express to view data and create collections in our mongo DB. The client browser is running outside the Docker network will connect to our application using the port assigned to it.
 
 I'll create a network **mongo-network** which I'll provide when instantiating the mongo container. When running the MongoDB instance container, I will map the container port with the host and add environmental variables. I'll also poke the mongo-network just to ascertain that the container ID is mapped with the mongo-network.
 
-![Image-16](./Images/Image-16.png)
+![Image-16](./images/Image-16.png)
 
 
 I also ran mongo-express and the server-UI Is up and ready. But there is an easier way to configure all this. Next, introducing Docker compose.
 
-![Image-17](./Images/Image-17.png)
+![Image-17](./images/Image-17.png)
 
 </hr>
 
-![Image-18](./Images/Image-18.png)
+![Image-18](./images/Image-18.png)
 
 
 ### Docker Compose
@@ -235,33 +235,33 @@ services:
 
 I terminated the previous containers and ran the docker compose command to start the contianers. The server will spit out a lot of mumbo jumbo that I wont post here but hey, who cares so long us I get the job done.
 
-![Image-19](./Images/Image-19.png)
+![Image-19](./images/Image-19.png)
 
 </hr>
 
-![Image-20](./Images/Image-20.png)
+![Image-20](./images/Image-20.png)
 
 </hr>
 
-![Image-21](./Images/Image-21.png)
+![Image-21](./images/Image-21.png)
 
 </hr>
 
 I have created a users collection of a fake company named *Zebra Inc* and ran the NodeJS app on localhost port 3000. If I save data from the browser UI, it should persist in the MongoDB as you can see in the following images. Unfortunately, if I stop the containers, I will lose the data and have to recreate it.
 
-![Image-22](./Images/Image-22.png)
+![Image-22](./images/Image-22.png)
 
 </hr>
 
-![Image-23](./Images/Image-23.png)
+![Image-23](./images/Image-23.png)
 
 If I modify the data in the UI, it should be saved in the DB. See saved data below.
  
-![Image-24](./Images/Image-24.png)
+![Image-24](./images/Image-24.png)
 
 </hr>
 
-![Image-25](./Images/Image-25.png)
+![Image-25](./images/Image-25.png)
 
 </hr>
 
@@ -271,7 +271,7 @@ To stop the containers, I don't need to stop them individually like before. I ca
 docker-compose -f mongo.yaml down
 ```
 
-![Image-26](./Images/Image-26.png)
+![Image-26](./images/Image-26.png)
 
 At this juncture, the application is ready. It's tested, no bugs but it has to be deployed. So packaging it up into a docker build should be the next step.
 
@@ -298,15 +298,15 @@ CMD ["node", "server.js"]
 
 I have build my Dockerfile and committed it in Git and now it's ready for deployment.
 
-![Image-27](./Images/Image-27.png)
+![Image-27](./images/Image-27.png)
 
 With the image created, I can run it with docker and it will listen at port 3000.
 
-![Image-28](./Images/Image-28.png)
+![Image-28](./images/Image-28.png)
 
 Lets now get inside the image of the app we created and poke things around.
 
-![Image-29](./Images/Image-29.jpeg)
+![Image-29](./images/Image-29.jpeg)
 
 ## Amazon Elastic Container Registry (ECR)
 
@@ -314,15 +314,15 @@ Amazon Elastic Container Registry (ECR) is a fully managed container registry th
 
 In ECR, there are two options. You can choose to make your repository private or public, just like in DockerHub. I'll make mine private, then I'll choose create. One thing with AWS is that they have tonnes of documentation for their services and whenever you are in doubt, just consult them. I've had people ask me, "Joseph, how can I achieve such and such a task with such and such a service?" In some occasions I actually don't know the answer, so I read the documentations and the pointers are always there.
 
-![Image-30](./Images/Image-30.png)
+![Image-30](./images/Image-30.png)
 
 Now that we have created a repository, I need to push the image my-app image to my-app repo which I have created in AWS ECR.
 
-![Image-31](./Images/Image-31.png)
+![Image-31](./images/Image-31.png)
 
 I will authenticate locally so that my local environment is authenticated with my AWS account, then push the image. Ne need to build it as it was already built. After a successful push, you can see the hash in ECR corresponds with the one locally. Incase we add a feature in our project, we can still build the project again and tag it with the latest version. What I have done locally is what a Jenkins server would do.
 
-![Image-32](./Images/Image-32.png)
+![Image-32](./images/Image-32.png)
 
 ## Deployment
 
@@ -376,11 +376,11 @@ services:
 
 I will run the image locally and recreate the database (my-db) with a collection of users, then add a new user. 
 
-![Image-33](./Images/Image-33.png)
+![Image-33](./images/Image-33.png)
 
 </hr>
 
-![Image-34](./Images/Image-34.png)
+![Image-34](./images/Image-34.png)
 
 If I were to restart the container, I would lose the data. So I'll add the named volumes for MongoDB as mongo-data *mongo-data:/data/db*. Mongo-express is a UI interface that fetches data from MongoDB to enable us to visualise the actual data on browser without storing it. My docker-compose yaml file will now look like this;
 
@@ -416,6 +416,6 @@ volumes:
 
 The path */data/db* inside our mongoDB contains data that the container uses and it will be persisted in the named volume when the container restarts.
 
-![Image-35](./Images/Image-35.png)
+![Image-35](./images/Image-35.png)
 
 I have demonstrated how containers work at a high level with Docker technology. Managing many containers which need to be deployed in multiple servers in a distributed way can have a lot of overhead. There are container orchestration tools like Kubernates which aid in automating this tasks.
