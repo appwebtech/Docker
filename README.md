@@ -1,9 +1,10 @@
 # Docker in DevOps
 
 <p float="left">
-  <img src="https://github.com/appwebtech/Deploy-Docker-With-Terraform/blob/main/images/docker.png" width="100">
-  <img src="https://github.com/appwebtech/Ansible-Integration-Jenkins/blob/main/images/aws-logo.png" width="120">
-  <img src="DOCKER-COMPOSE" width="100">
+  <img src="https://github.com/appwebtech/Deploy-Docker-With-Terraform/blob/main/images/docker.png" width="105">
+  <img src="https://github.com/appwebtech/Docker/blob/main/images/docker-compose-logo.png" width="150">
+  <img src="https://github.com/appwebtech/Ansible-Integration-Jenkins/blob/main/images/aws-logo.png" width="115">
+  
 </p>
 
 ----
