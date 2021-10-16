@@ -306,7 +306,7 @@ With the image created, I can run it with docker and it will listen at port 3000
 
 Lets now get inside the image of the app we created and poke things around.
 
-![Image-29](./images/Image-29.jpeg)
+![Image-29](./images/Image-29.png)
 
 ## Amazon Elastic Container Registry (ECR)
 
@@ -314,7 +314,7 @@ Amazon Elastic Container Registry (ECR) is a fully managed container registry th
 
 In ECR, there are two options. You can choose to make your repository private or public, just like in DockerHub. I'll make mine private, then I'll choose create. One thing with AWS is that they have tonnes of documentation for their services and whenever you are in doubt, just consult them. I've had people ask me, "Joseph, how can I achieve such and such a task with such and such a service?" In some occasions I actually don't know the answer, so I read the documentations and the pointers are always there.
 
-![Image-30](./images/Image-30.png)
+<!--  ![Image-30](./images/Image-30.png) -->
 
 Now that we have created a repository, I need to push the image my-app image to my-app repo which I have created in AWS ECR.
 
