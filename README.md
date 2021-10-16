@@ -58,7 +58,7 @@ These tasks enhance speed of development, testing, scaling, improved collaborati
 
 It’s the DevOps Engineers role to automate the build process of the application using the CI/CD Pipeline, install dependencies, run tests, build/bundle the application and push to a repository.
 
-![Image-2](./images/Image-2.png)
+![Image-2](./images/image-2.png)
 
 ## Introducing Docker
 
@@ -90,16 +90,16 @@ docker build # Build an image from a specified docker file
 docker network < + a prompt> # Create / Connect / Disconnect / Display / Remove a container from a network
 ```
 
-![Image-3](./images/Image-3.png)
+![Image-3](./images/image-3.png)
 
 
-![Image-4](./images/Image-4.png)
+![Image-4](./images/image-4.png)
 
 
 To inspect a container, you use **docker inspect** command. The commamnd will give a lot of information, but you can filter out by grepping or passing specific info using --format argument.
 It's also possible to view logs by running the **docker container logs <containerID>** and also rename the container.
 
-![Image-5](./images/Image-5.png)
+![Image-5](./images/image-5.png)
 
 ## Containerizing an Nginx Server Using Docker
 
@@ -109,16 +109,16 @@ I will pull an nginx Image from my repository in docker hub and run it locally. 
 docker container run -itd -p 8080:80 appwebtech/nginx
 ```
 
-![Image-6](./images/Image-6.png)
+![Image-6](./images/image-6.png)
 
 ## Exporting and Importing a Container
 
 The container **a1ea740bc6be** which houses **Ubuntu:14.04** has been modified by installing git, tree and cmatrix (a cool screensaver). I will export this container and rename it **ubuntu-git-tree-cmatrix.tar**. Subsequently I'll import it again assigning it a different image ID, run it in a different container and verify my installations.
 
-![Image-7](./images/Image-7.png)
+![Image-7](./images/image-7.png)
 
 
-![Image-8](./images/Image-8.png)
+![Image-8](./images/image-8.png)
 
 ## Docker Volumes
 
