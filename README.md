@@ -93,8 +93,6 @@ docker network < + a prompt> # Create / Connect / Disconnect / Display / Remove 
 ![Image-3](./images/Image-3.png)
 
 
-</hr>
-
 ![Image-4](./images/Image-4.png)
 
 
@@ -120,10 +118,7 @@ The container **a1ea740bc6be** which houses **Ubuntu:14.04** has been modified b
 ![Image-7](./images/Image-7.png)
 
 
-</hr>
-
 ![Image-8](./images/Image-8.png)
-
 
 ## Docker Volumes
 
