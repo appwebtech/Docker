@@ -115,7 +115,7 @@ docker container run -itd -p 8080:80 appwebtech/nginx
 
 The container **a1ea740bc6be** which houses **Ubuntu:14.04** has been modified by installing git, tree and cmatrix (a cool screensaver). I will export this container and rename it **ubuntu-git-tree-cmatrix.tar**. Subsequently I'll import it again assigning it a different image ID, run it in a different container and verify my installations.
 
-![Image-7](./images/image-7.png)
+![Image-7](./images/Image-7.png)
 
 
 ![Image-8](./images/image-8.png)
