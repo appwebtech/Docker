@@ -242,7 +242,7 @@ I terminated the previous containers and ran the docker compose command to start
 
 </hr>
 
-I have created a users collection of a fake company named *Zebra Inc* and ran the NodeJS app on localhost port 3000. If I save data from the browser UI, it should persist in the MongoDB as you can see in the following images. Unfortunately, if I stop the containers, I will lose the data and have to recreate it.
+I have created a users collection of an imaginary company called *Zebra Inc* and ran the NodeJS app on localhost port 3000. If I save data from the browser UI, it should persist in the MongoDB as you can see in the following images. Unfortunately, if I stop the containers, I will lose the data and have to recreate it.
 
 ![Image-22](./images/Image-22.png)
 
@@ -413,4 +413,4 @@ The path */data/db* inside our mongoDB contains data that the container uses and
 
 ![Image-35](./images/Image-35.png)
 
-I have demonstrated how containers work at a high level with Docker technology. Managing many containers which need to be deployed in multiple servers in a distributed way can have a lot of overhead. There are container orchestration tools like Kubernates which aid in automating this tasks.
+I have demonstrated at a high level how containers work with Docker technology. Managing many containers which need to be deployed in multiple servers in a distributed way can have a lot of overhead. There are container orchestration tools like [Kubernates](https://github.com/appwebtech/Kubernetes-project) which aid in automating this tasks.
