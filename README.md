@@ -4,7 +4,7 @@
   <img src="https://github.com/appwebtech/Deploy-Docker-With-Terraform/blob/main/images/docker.png" width="105">
   <img src="https://github.com/appwebtech/Docker/blob/main/images/docker-compose-logo.png" width="160">
   <img src="https://github.com/appwebtech/Ansible-Integration-Jenkins/blob/main/images/aws-logo.png" width="115">
-  
+  <img src="https://github.com/appwebtech/Kubernates-End-to-End-App-Deployment/blob/main/images/MongoDB-logo.png" width="300"> 
 </p>
 
 ----
